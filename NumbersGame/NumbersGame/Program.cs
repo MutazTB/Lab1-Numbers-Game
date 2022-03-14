@@ -94,40 +94,40 @@ namespace NumbersGame
 
         static int GetProduct(int[] arr , int sum) 
         {
-            int product = 0;
+            
             try
             {
                 Console.WriteLine($"Please inter a number between 1 and {arr.Length}");// ask user to inter random number between 1 and size of array 
                 String ranNum = Console.ReadLine();                                    // to get the element in that index and multiply it with sum
                 int productNum = Convert.ToInt32(ranNum);
-                product = sum * arr[productNum - 1];
+                int product = sum * arr[productNum - 1];
+                return product;
             }
             catch(IndexOutOfRangeException e ) // if user input number greater than array's size 
             {                                  // throw an error to let user know his input greater than array's size
                 Console.WriteLine(e.Message);
+                throw;
             }
-            return product;
+            
         }
 
         static decimal GetQuotient(int product)
-        {
-            decimal quotient = 0;
+        {             
             try
             {
                 Console.WriteLine($"Please inter a number to divide your product {product} by"); // ask user to inter random number to divide the product on it 
                 String divideNum = Console.ReadLine();
                 decimal divide = Convert.ToDecimal(divideNum);
 
-                quotient = decimal.Divide(product, divide);
+                decimal quotient = decimal.Divide(product, divide);
+                return quotient;
             }
             catch(DivideByZeroException e) // if user input zero , throw an error because we cannot divide by zero
             {
                 Console.WriteLine(e.Message);
                 return 0;
-            }
-
-            return quotient;
-            }
+            }            
+        }
 
     }
 }
